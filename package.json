@@ -119,7 +119,6 @@
     "test": "gulp test",
     "posttest": "gulp generate-coverage-report",
     "prepublish": "gulp build",
-    "install": "gulp build",
     "build": "gulp build",
     "demo": "gulp --gulpfile ./demo-gulpfile.js watch",
     "depcheck": "dependency-check . --unused --no-dev --entry gulpfile.js --entry demo-gulpfile.js --entry lib/styleguide.js"
