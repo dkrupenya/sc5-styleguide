@@ -3,6 +3,8 @@ $primary-color: #1C3849 !default;
 $secondary-color: #E4E4E4 !default;
 $tertiary-color: #F7FCF1 !default;
 
+$secondary-dark-color: color($secondary-color blackness(60%)) !default;
+
 /* Button and link colors */
 $primary-action-color: #EB7F00 !default;
 $default-action-color: #1695A3 !default;
@@ -36,6 +38,13 @@ $active-section-header-text-color: $section-header-text-color !default;
 $active-section-header-source-text-color: rgba($primary-color, 0.6) !default;
 $main-section-header-source-text-color: $secondary-color !default;
 
+$ny-section-header-color: $secondary-color !default;
+$ny-section-header-ref-color: $primary-color !default;
+$ny-section-header-text-color: $primary-color !default;
+$ny-active-section-header-color: color($ny-section-header-color lightness(17%));
+$ny-active-section-header-ref-color: $ny-section-header-ref-color !default;
+$ny-active-section-header-text-color: $ny-section-header-text-color !default;
+
 /* Fonts */
 $primary-font: Helvetica, Arial, sans-serif !default;
 $secondary-font: Helvetica, Arial, sans-serif !default;
@@ -52,6 +61,10 @@ $sub-menu-height: 30px !default;
 $wrapper-vertical-padding: 60px !default;
 
 $content-max-width: 68em !default;
+
+$ny-header-menu-width: 9em !default;
+$ny-header-menu-height: 2.5em !default;
+
 
 /* Temporary declaration of variables in native CSS syntax */
 :root {
@@ -93,6 +106,13 @@ $content-max-width: 68em !default;
 --active-section-header-source-text-color: rgba($primary-color, 0.6) !default;
 --main-section-header-source-text-color: $secondary-color !default;
 
+--ny-section-header-color: $secondary-color !default;
+--ny-section-header-ref-color: $primary-color !default;
+--ny-section-header-text-color: $primary-color !default;
+--ny-active-section-header-color: $ny-active-section-header-color;
+--ny-active-section-header-ref-color: $active-section-header-ref-color !default;
+--ny-active-section-header-text-color: $ny-active-section-header-text-color !default;
+
 /* Fonts */
 --primary-font: Helvetica, Arial, sans-serif !default;
 --secondary-font: Helvetica, Arial, sans-serif !default;
@@ -109,5 +129,7 @@ $content-max-width: 68em !default;
 --wrapper-vertical-padding: 60px !default;
 
 --content-max-width: 68em !default;
+
+--ny-header-menu-width: 9em !default;
 }
 

@@ -1,0 +1,37 @@
+/* add new custom styles for sc5 templates */
+
+.ny-sg-section-menu {
+    display: flex;
+    width: $ny-header-menu-width;
+    height: $ny-header-menu-height;
+    position: absolute;
+    right: 100%;
+    top: 5px;
+}
+
+.ny-sg-section-menu a {
+    display: block;
+    width: 33%;
+    line-height: $ny-header-menu-height;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    opacity: 0.5;
+}
+
+.ny-sg-section-menu a:nth-child(1) {
+    background-color: $default-action-color;
+    color: color($default-action-color blackness(150%));
+}
+.ny-sg-section-menu a:nth-child(2) {
+    background-color: $primary-action-color;
+    color: color($primary-action-color blackness(150%));
+}
+.ny-sg-section-menu a:nth-child(3) {
+    background-color: $secondary-dark-color;
+    color: color($secondary-dark-color blackness(200%));
+}
+
+.ny-sg-section-menu a.active {
+    opacity: 1;
+}

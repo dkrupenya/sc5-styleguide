@@ -10,6 +10,7 @@ gulp.task('styleguide:generate', function() {
     .pipe(styleguide.generate({
         title: 'SC5 Styleguide',
         server: true,
+        sideNav: true,
         rootPath: outputPath,
         overviewPath: 'README.md',
         styleVariables: 'lib/app/css/_styleguide_variables.css',

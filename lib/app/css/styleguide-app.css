@@ -19,6 +19,10 @@ $fa-version: '4.2.0';
 $footer-padding: 2em;
 $footer-logo-height: 42px;
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body.sg {
   width: 100%;
@@ -352,7 +356,7 @@ Styleguide 3.1.1
 .sg.sg-wrapper {
   position: relative;
   overflow: hidden;
-  max-width: 68em;
+  max-width: 108em;
   margin: 0 auto;
   padding: $wrapper-vertical-padding $content-margin $wrapper-vertical-padding $min-content-margin;
   @media (--mobile) {
@@ -365,8 +369,10 @@ Styleguide 3.1.1
 
   .sg.sg-body {
     display: inline-block;
-    width: 70%;
-    min-height: 680px;
+    width: calc(75% - $ny-header-menu-width);
+    margin-left: var(--ny-header-menu-width);
+    margin-left: $ny-header-menu-width;
+    /* min-height: 680px; */
     height: 100%;
     @media (--mobile) {
       padding: 0.25em;
@@ -387,7 +393,7 @@ Styleguide 3.1.1
   .sg.sg-side-nav {
     float: left;
     display: inline-block;
-    width: 30%;
+    width: 25%;
     opacity: 1;
     @media (--mobile) {
       width: 100%;
@@ -1017,8 +1023,15 @@ Sections can be used to structure content. Sections are generated from
 KSS reference numbers.
 
 Markup:
-<header class="sg section-header">
-  <h1 class="sg"><span class="reference-number">1.0</span> Section title </h1>
+<header class="sg sg-section-header">
+  <a href="">
+    <i class="fa fa-link"></i>
+    <h1 class="sg">
+      <span class="sg-reference-number ng-binding">3.2.1</span>
+      <span class="ng-binding">Header</span>
+      <span class="sg-section-source ng-binding">styleguide-app.css</span>
+    </h1>
+  </a>
 </header>
 
 Styleguide 3.4
@@ -1026,10 +1039,9 @@ Styleguide 3.4
 
 .sg.sg-section-header {
   @mixin default-font;
-  background-color: var(--section-header-color);
-  background-color: $section-header-color;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  background-color: var(--ny-section-header-color);
+  background-color: $ny-section-header-color;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -1044,21 +1056,21 @@ Styleguide 3.4
   }
 
   h1 {
-    color: var(--section-header-text-color);
-    color: $section-header-text-color;
+    color: var(--ny-section-header-text-color);
+    color: $ny-section-header-text-color;
     padding: 13px;
     margin: 0;
     font-size: 1.777em;
 
     .sg-reference-number {
-      color: var(--section-header-ref-color);
-      color: $section-header-ref-color;
+      color: var(--ny-section-header-ref-color);
+      color: $ny-section-header-ref-color;
     }
 
     .sg-section-source {
       float: right;
-      color: var(--section-header-source-text-color);
-      color: $section-header-source-text-color;
+      color: var(--ny-section-header-source-text-color);
+      color: $ny-section-header-source-text-color;
       font-size: 60%;
       line-height: 1.777em;
     }
@@ -1068,28 +1080,28 @@ Styleguide 3.4
     font-size: 14px;
     padding: 0.4em 0.7em;
     float: right;
-    color: $section-header-text-color.6;
+    color: $ny-section-header-text-color.6;
     transition: all .4s ease-out;
   }
 
   /* Active header styles */
   .sg.designerToolVisible .sg.section.active:not(.main) & {
-    background-color: var(--active-section-header-color);
-    background-color: $active-section-header-color;
+    background-color: var(--ny-active-section-header-color);
+    background-color: $ny-active-section-header-color;
     h1 {
-      color: var(--active-section-header-text-color);
-      color: $active-section-header-text-color;
+      color: var(--ny-active-section-header-text-color);
+      color: $ny-active-section-header-text-color;
       .sg-reference-number {
         color: $active-section-header-ref-color;
       }
 
       .sg-section-source {
-        color: var(--active-section-header-source-text-color);
-        color: $active-section-header-source-text-color;
+        color: var(--ny-active-section-header-source-text-color);
+        color: $ny-active-section-header-source-text-color;
       }
     }
     i.fa {
-      color: $active-section-header-text-color.6;
+      color: $ny-active-section-header-text-color.6;
     }
   }
 
@@ -1193,27 +1205,43 @@ Styleguide 3.5
   .sg.sg-section-partial {
     position: relative;
 
-    overflow: auto;
+    /*overflow: auto;*/
 
-    padding: 1em;
+    padding: 12px 1em;
 
-    border: 1px solid var(--secondary-color);
-    border: 1px solid $secondary-color;
-    border-bottom: none;
+    border-top: 1px solid var(--secondary-color);
+    border-top: 1px solid $secondary-color;
     background: #fff;
     width: 100%;
+
+    .sg.sg-name {
+      position: absolute;
+      left: 20px;
+      top: -10px;
+      padding: 0 8px;
+      color: $secondary-dark-color;
+      background-color: #fff;
+    }
   }
 
-  .sg.sg-section-partial:last-child {
-    border-bottom: 1px solid $secondary-color;
+  .sg.sg-code-description {
+    padding: 0 1em;
   }
+
+  .sg.sg-section-style {
+    margin-top: 1em;
+  }
+  
+
+  /*.sg.sg-section-partial:last-child {
+    border-bottom: 1px solid $secondary-color;
+  }*/
 
   .sg.sg-code-listing {
-    padding: 0;
     background-color: #f8f8f8;
 
     pre {
-      padding: 1em;
+      padding: 0 1em;
     }
 
     .hljs {
@@ -1256,14 +1284,12 @@ Styleguide 3.5
 .sg.sg-label {
   @mixin default-font;
   position: absolute;
+  right: 100%;
+  top: 10px;
   z-index: 7000;
-  top: 0;
-  right: 0;
 
   border: 1px solid var(--secondary-color);
   border: 1px solid $secondary-color;
-  border-top: none;
-  border-right: none;
   background: #fff.9;
 
   span,
@@ -1699,5 +1725,7 @@ Styleguide 6.2
  */
 
 /* styleguide:ignore:start */
+@import '_ny_sg_styles.css';
+
 @mixin styleguide_custom_styles;
 /* styleguide:ignore:end */
